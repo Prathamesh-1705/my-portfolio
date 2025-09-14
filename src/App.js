@@ -141,41 +141,28 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <form
-              className="rounded-lg bg-white p-6 shadow"
-              onSubmit={(e) => {
-                e.preventDefault();
-                window.location.href =
-                  "mailto:prathameshtirmare246@gmail.com?subject=Portfolio%20Inquiry";
-              }}
-            >
-              <label className="block text-sm font-medium">Name</label>
-              <input
-                required
-                className="mt-2 w-full rounded-md border-slate-200 p-2 border"
-              />
-
-              <label className="block text-sm font-medium mt-4 ">Message</label>
-              <textarea
-                required
-                className="mt-2 w-full rounded-md border-slate-200 p-2 border"
-                rows={4}
-              />
-
+            {/* Replaced Form with Message Me Button */}
+            <div className="rounded-lg bg-white p-6 shadow text-center">
+              <p className="text-gray-700 mb-4">
+                Click the button below to open your default email app and message me directly.
+              </p>
               <button
-                type="submit"
-                className="mt-4 inline-block rounded-lg px-4 py-2 bg-slate-900 text-white border-2px solid"
+                type="button"
+                onClick={() => {
+                  window.location.href =
+                    "mailto:prathameshtirmare246@gmail.com?subject=Portfolio%20Inquiry";
+                }}
+                className="w-full mt-2 inline-block rounded-lg px-4 py-3 bg-slate-900 text-white font-medium shadow"
               >
-                Send
+                📩 Message Me
               </button>
-            </form>
+            </div>
           </div>
         </section>
 
         {/* FOOTER */}
         <footer className="mt-12 text-center text-sm text-gray-500">
-          Built with React + Tailwind. © {new Date().getFullYear()}{" "}
-          {name.split(" ")[0]}.
+          Built with React + Tailwind. © {new Date().getFullYear()} {name.split(" ")[0]}.
         </footer>
       </main>
     </div>
