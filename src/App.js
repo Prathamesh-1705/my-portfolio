@@ -1,5 +1,5 @@
 import React from "react";
-import profilePic from "./portfolio.jpg"; // Import your photo
+import profilePic from "./portfolio.jpg"; // your provided image (already in src)
 
 export default function Portfolio() {
   const name = "PRATHAMESH TIRMARE";
@@ -16,6 +16,18 @@ export default function Portfolio() {
     "JavaScript (ES6)",
   ];
 
+  // Projects — videos should be placed in public/videos/ (see README note below)
+  const projects = [
+    {
+      id: 1,
+      title: "Simple Pdf-merger",
+      desc: "Pdf merger build using python and python libraries",
+      // put the file at public/videos/project1.mp4
+      video: "/videos/pdf_merger.mp4",
+    },
+    
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-slate-50 to-gray-100 text-gray-900 antialiased">
       {/* HEADER */}
@@ -23,6 +35,9 @@ export default function Portfolio() {
         <nav className="flex items-center justify-between">
           <div className="text-lg font-semibold ">{name.split(" ")[0]}</div>
           <div className="space-x-4">
+            <a href="#projects" className="hover:underline">
+              Projects
+            </a>
             <a href="#skills" className="hover:underline">
               Skills
             </a>
@@ -37,9 +52,7 @@ export default function Portfolio() {
         {/* HERO */}
         <section className="grid md:grid-cols-2 gap-8 items-center py-12">
           <div>
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight ">
-              {name}
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight ">{name}</h1>
             <p className="mt-3 text-xl text-gray-700">{tagline}</p>
 
             <p className="mt-6 max-w-xl leading-relaxed capitalize">{bio}</p>
@@ -86,12 +99,36 @@ export default function Portfolio() {
           </div>
         </section>
 
+        {/* PROJECTS */}
+        <section id="projects" className="py-12">
+          <h2 className="text-2xl font-semibold">Projects</h2>
+          <p className="mt-2 text-gray-600">Here are some of my working project demos:</p>
+
+          <div className="mt-6 grid md:grid-cols-2 gap-8">
+            {projects.map((p) => (
+              <article key={p.id} className="rounded-lg bg-white p-4 shadow">
+                <h3 className="text-xl font-semibold mb-2">{p.title}</h3>
+                <p className="text-gray-600 mb-3">{p.desc}</p>
+
+                {/* Video from public/videos */}
+                <div className="w-full bg-black rounded overflow-hidden">
+                  <video
+                    src={p.video}
+                    controls
+                    className="w-full h-64 object-cover bg-black"
+                  />
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <p className="mt-4 text-sm text-gray-500">Tip: put your MP4 files in <code>public/videos/</code> (eg. <code>public/videos/project1.mp4</code>) and they will load with the paths used above.</p>
+        </section>
+
         {/* SKILLS */}
         <section id="skills" className="py-8">
           <h2 className="text-2xl font-semibold">Skills</h2>
-          <p className="mt-2 text-gray-600">
-            A selection of technologies and tools I use frequently:
-          </p>
+          <p className="mt-2 text-gray-600">A selection of technologies and tools I use frequently:</p>
 
           <ul className="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
             {skills.map((s) => (
@@ -108,9 +145,7 @@ export default function Portfolio() {
         {/* CONTACT */}
         <section id="contact" className="py-8">
           <h2 className="text-2xl font-semibold">Contact</h2>
-          <p className="mt-2 text-gray-600">
-            Want to collaborate or have questions? Reach out.
-          </p>
+          <p className="mt-2 text-gray-600">Want to collaborate or have questions? Reach out.</p>
 
           <div className="mt-6 grid md:grid-cols-2 gap-6">
             <div className="rounded-lg bg-white p-6 shadow">
