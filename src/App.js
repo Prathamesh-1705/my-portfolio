@@ -59,7 +59,7 @@ export default function Portfolio() {
 
             <div className="mt-6 flex gap-4">
               <a
-                href="/Prathamesh resume.pdf"
+                href="/resume.pdf"
                 download
                 className="inline-block rounded-lg px-5 py-3 bg-slate-900 text-white font-medium shadow"
               >
