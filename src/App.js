@@ -1,5 +1,5 @@
 import React from "react";
-import profilePic from "./portfolio.jpg"; // your provided image (already in src)
+import profilePic from "./my portrait.png"; // your provided image (already in src)
 
 export default function Portfolio() {
   const name = "PRATHAMESH TIRMARE";
@@ -12,8 +12,10 @@ export default function Portfolio() {
     "SQL",
     "HTML",
     "CSS",
-    "JS",
-    "JavaScript (ES6)",
+    "Numpy",
+    "Pandas",
+    "Matplotlib",
+    "Machine Learning"
   ];
 
   // Projects — videos should be placed in public/videos/ (see README note below)
@@ -86,6 +88,15 @@ export default function Portfolio() {
               >
                 LinkedIn
               </a>
+              <span className="opacity-50">•</span>
+              <a
+                href="https://www.kaggle.com/prathameshtirmare/datasets"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:underline"
+              >
+                Kaggle
+              </a>
             </div>
           </div>
 
@@ -94,7 +105,7 @@ export default function Portfolio() {
             <img
               src={profilePic}
               alt="Prathamesh Tirmare"
-              className="w-80 h-90 rounded-2xl object-cover shadow-lg"
+              className="w-80 h-90 rounded-full object-cover border-4 border-gray-300-500 shadow-md"
             />
           </div>
         </section>
@@ -122,7 +133,7 @@ export default function Portfolio() {
             ))}
           </div>
 
-          <p className="mt-4 text-sm text-gray-500">Tip: put your MP4 files in <code>public/videos/</code> (eg. <code>public/videos/project1.mp4</code>) and they will load with the paths used above.</p>
+          <p className="mt-4 text-sm text-gray-500"></p>
         </section>
 
         {/* SKILLS */}
