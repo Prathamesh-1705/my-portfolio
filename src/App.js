@@ -3,9 +3,9 @@ import profilePic from "./my portrait.png";
 
 export default function Portfolio() {
   const name = "PRATHAMESH TIRMARE";
-  const tagline = "Aspiring Data Scientist and Engineer";
+  const tagline = "Aspiring Data Science and AI Engineer";
 
-  const bio = `I'm a student and developer focused on data analysis and machine learning. I build data-driven projects. I enjoy turning ideas into working prototypes and clean, documented code.`;
+  const bio = `Aspiring Data Science and AI Engineer skilled in Python, SQL, Machine Learning, Data Analysis, ETL, and Generative AI. Experienced in building predictive analytics solutions, RAG-powered document assistants, AI-driven data warehouse tools, and data visualization projects that solve real-world problems.`;
 
   const skills = [
     "Data Science",
@@ -16,8 +16,14 @@ export default function Portfolio() {
     "Numpy",
     "Pandas",
     "Matplotlib",
+    "MS Excel",
+    "Power BI",
     "Machine Learning",
-    "Flask"
+    "RAG",
+    "Flask",
+    "ETL",
+    "Data Warehousing",
+    "Query Optimization"
   ];
 
   // ✅ PROJECTS
@@ -35,6 +41,14 @@ export default function Portfolio() {
       title: "EV Resale Price Prediction",
       desc: "Built a machine learning model to predict EV resale prices using Python, Pandas, and Scikit-learn. Includes data cleaning, feature engineering, and regression modeling.",
       video: "/videos/EV Resale.mp4",
+  
+    },
+
+    {
+      id: 3,
+      title: "RAG Based Document Assistant",
+      desc: "Built a RAG based Document Assitant using React JS , Gemini API , LangChain , LLM APIs. Provides real time information about the document ",
+      video: "/videos/RAG_document_assistant.mp4",
   
     }
   ];
