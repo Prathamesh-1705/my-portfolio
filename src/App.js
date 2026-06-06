@@ -1,227 +1,438 @@
 import React from "react";
+import "./App.css";
 import profilePic from "./my portrait.png";
 
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaBrain,
+  FaDatabase,
+  FaChartBar,
+  FaCode,
+  FaRobot,
+  FaDownload,
+  FaArrowRight,
+} from "react-icons/fa";
+
 export default function Portfolio() {
-  const name = "PRATHAMESH TIRMARE";
-  const tagline = "Aspiring Data Science and AI Engineer";
-
-  const bio = `Aspiring Data Science and AI Engineer skilled in Python, SQL, Machine Learning, Data Analysis, ETL, and Generative AI. Experienced in building predictive analytics solutions, RAG-powered document assistants, AI-driven data warehouse tools, and data visualization projects that solve real-world problems.`;
-
-  const skills = [
-    "Data Science",
-    "Python",
-    "SQL",
-    "HTML",
-    "CSS",
-    "Numpy",
-    "Pandas",
-    "Matplotlib",
-    "MS Excel",
-    "Power BI",
-    "Machine Learning",
-    "RAG",
-    "Flask",
-    "ETL",
-    "Data Warehousing",
-    "Query Optimization"
-  ];
-
-  // ✅ PROJECTS
   const projects = [
     {
-      id: 1,
-      title: "Simple PDF Merger",
-      desc: "PDF merger built using Python and libraries like PyPDF.",
-      video: "/videos/pdf_merger.mp4",
-    
-    },
-
-    {
-      id: 2,
-      title: "EV Resale Price Prediction",
-      desc: "Built a machine learning model to predict EV resale prices using Python, Pandas, and Scikit-learn. Includes data cleaning, feature engineering, and regression modeling.",
-      video: "/videos/EV Resale.mp4",
-  
-    },
-
-    {
-      id: 3,
-      title: "RAG Based Document Assistant",
-      desc: "Built a RAG based Document Assitant using React JS , Gemini API , LangChain , LLM APIs. Provides real time information about the document ",
+      title: "RAG-Based Document QA Assistant",
+      featured: true,
+      description:
+        "Built a semantic retrieval pipeline over large document collections using LangChain and LLM APIs, enabling context-aware question answering and real-time information retrieval.",
       video: "/videos/RAG_document_assistant.mp4",
-  
-    }
+      github: "https://github.com/Prathamesh-1705/rag-document-assistant",
+      tech: ["LangChain", "RAG", "LLMs", "Semantic Search"],
+    },
+    
+    { title: "AI Data Warehouse SQL Assistant",
+       description: "Designed ETL pipelines and integrated Gemini AI to convert natural language into SQL queries for analytical reporting.", 
+       video: "/videos/AI_Data_Warehouse_Assistant.mp4", 
+       github: "https://github.com/Prathamesh-1705/ai-data-warehouse-assistant", 
+       tech: ["MySQL", "Gemini", "ETL", "Streamlit"], },
+    {
+      title: "EV Resale Price Prediction",
+      description:
+        "Machine learning model for EV resale price prediction using feature engineering, preprocessing and regression techniques.",
+      video: "/videos/EV Resale.mp4",
+      github: "https://github.com/Prathamesh-1705/ev_resale_price_prediction",
+      tech: ["Python", "Scikit-Learn", "Pandas"],
+    },
+    
   ];
 
+  const skillCategories = [
+    {
+      title: "AI & Machine Learning",
+      icon: <FaBrain />,
+      skills: ["Python", "Scikit-Learn", "LangChain", "RAG", "Gemini AI"],
+    },
+    {
+      title: "Data Engineering",
+      icon: <FaDatabase />,
+      skills: ["SQL", "ETL Pipelines", "Data Warehousing", "Data Modeling"],
+    },
+    {
+      title: "Analytics",
+      icon: <FaChartBar />,
+      skills: ["Pandas", "NumPy", "Power BI", "Excel"],
+    },
+    {
+      title: "Web Development",
+      icon: <FaCode />,
+      skills: ["JavaScript", "Flask", "HTML", "CSS"],
+    },
+  ];
+
+  const featuredProject = projects.find((p) => p.featured);
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-slate-50 to-gray-100 text-gray-900 antialiased">
-      
-      {/* HEADER */}
-      <header className="max-w-5xl mx-auto px-6 py-10">
-        <nav className="flex items-center justify-between">
-          <div className="text-lg font-semibold">
-            {name.split(" ")[0]}
-          </div>
+    <div className="portfolio">
+      {/* FLOATING NAVBAR */}
 
-          <div className="space-x-4">
-            <a href="#projects" className="hover:underline">Projects</a>
-            <a href="#skills" className="hover:underline">Skills</a>
-            <a href="#contact" className="hover:underline">Contact</a>
-          </div>
-        </nav>
-      </header>
+      <nav className="floating-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-      <main className="max-w-5xl mx-auto px-6 pb-20">
+      {/* HERO */}
 
-        {/* HERO */}
-        <section className="grid md:grid-cols-2 gap-8 items-center py-12">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-              {name}
-            </h1>
+      <section className="hero">
+        <div className="hero-content">
+          <div className="hero-left">
+            <p className="hero-label">AI • DATA • ENGINEERING</p>
 
-            <p className="mt-3 text-xl text-gray-700">{tagline}</p>
+            <h1>Prathamesh Tirmare</h1>
 
-            <p className="mt-6 max-w-xl leading-relaxed capitalize">
-              {bio}
+            <h2>
+              Creating AI-Powered Applications,
+              <br />
+              Scalable Data Pipelines and
+              <br />
+              Machine Learning Solutions
+            </h2>
+
+            <p className="hero-description">
+              AI Engineer • Data Engineer • Data Scientist
             </p>
 
-            <div className="mt-6 flex gap-4">
-              <a
-                href="/resume.pdf"
-                download
-                className="inline-block rounded-lg px-5 py-3 bg-slate-900 text-white font-medium shadow"
-              >
-                Download Resume
+            <div className="hero-buttons">
+              <a href="/resume.pdf" download className="primary-btn">
+                <FaDownload />
+                Resume
+              </a>
+
+              <a href="#contact" className="secondary-btn">
+                Contact Me
               </a>
             </div>
 
-            <div className="mt-8 flex items-center gap-4 text-sm text-gray-600">
-              <a href="https://github.com/Prathamesh-1705/" target="_blank" rel="noreferrer" className="hover:underline">GitHub</a>
-              <span>•</span>
-              <a href="https://www.linkedin.com/in/prathamesh-tirmare-52961028b/" target="_blank" rel="noreferrer" className="hover:underline">LinkedIn</a>
-              <span>•</span>
-              <a href="https://www.kaggle.com/prathameshtirmare/datasets" target="_blank" rel="noreferrer" className="hover:underline">Kaggle</a>
+            <div className="social-links">
+              <a
+                href="https://github.com/Prathamesh-1705/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaGithub />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/prathamesh-tirmare-52961028b/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaLinkedin />
+              </a>
+
+              <a href="mailto:prathameshtirmare246@gmail.com">
+                <FaEnvelope />
+              </a>
             </div>
           </div>
 
-          {/* PROFILE IMAGE */}
-          <div className="order-first md:order-last flex justify-center">
-            <img
-              src={profilePic}
-              alt="Prathamesh Tirmare"
-              className="w-80 h-96 rounded-full object-cover border-4 border-gray-300 shadow-md"
-            />
+          <div className="hero-right">
+            <div className="profile-card">
+              <img src={profilePic} alt="Prathamesh Tirmare" />
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* PROJECTS */}
-        <section id="projects" className="py-12">
-          <h2 className="text-2xl font-semibold">Projects</h2>
+      {/* ABOUT */}
 
-          <div className="mt-6 grid md:grid-cols-2 gap-8">
-            {projects.map((p) => (
-              <article key={p.id} className="rounded-lg bg-white p-4 shadow hover:shadow-lg transition">
+      <section id="about" className="section">
+        <div className="container">
+          <h2 className="section-title">About Me</h2>
 
-                <h3 className="text-xl font-semibold mb-2">{p.title}</h3>
+          <p className="about-text">
+            AI & Data Science undergraduate with hands-on experience in
+            Machine Learning, Data Analytics, ETL Pipelines, Data Warehousing
+            and Generative AI applications. Passionate about building
+            intelligent systems that transform data into actionable insights.
+          </p>
+        </div>
+      </section>
 
-                <p className="text-gray-600 mb-3">{p.desc}</p>
+      {/* STATS */}
 
-                {/* VIDEO */}
-                <div className="w-full bg-black rounded overflow-hidden">
-                  <video
-                    src={p.video}
-                    controls
-                    className="w-full h-64 object-cover bg-black"
-                  />
+      <section className="stats-section">
+        <div className="stats-grid">
+          <div className="stat-card">
+            <h3>4</h3>
+            <p>Projects Built</p>
+          </div>
+
+          <div className="stat-card">
+            <h3>10+</h3>
+            <p>Technologies</p>
+          </div>
+
+          <div className="stat-card">
+            <h3>3</h3>
+            <p>Certifications</p>
+          </div>
+
+          <div className="stat-card">
+            <h3>7.95</h3>
+            <p>CGPA</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURED PROJECT */}
+
+      <section className="featured-section">
+        <div className="container">
+          <p className="featured-label">FEATURED PROJECT</p>
+
+          <h2>{featuredProject.title}</h2>
+
+          <p>{featuredProject.description}</p>
+
+          <div className="tech-tags">
+            {featuredProject.tech.map((tech) => (
+              <span key={tech}>{tech}</span>
+            ))}
+          </div>
+
+          <video
+            src={featuredProject.video}
+            controls
+            className="featured-video"
+          />
+
+          <a href={"https://github.com/Prathamesh-1705/rag-document-assistant"} className="github-link">
+            View Project <FaArrowRight />
+          </a>
+        </div>
+      </section>
+
+      {/* PROJECTS */}
+
+      <section id="projects" className="section">
+        <div className="container">
+          <h2 className="section-title">Projects</h2>
+
+          <div className="projects-grid">
+            {projects.map((project) => (
+              <div key={project.title} className="project-card">
+                <div className="project-icon">
+                  <FaRobot />
                 </div>
 
-                {/* GITHUB LINK */}
-                {p.github && (
-                  <a
-                    href={p.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-block mt-3 text-sm text-blue-600 hover:underline"
-                  >
-                    View Code →
-                  </a>
-                )}
-              </article>
-            ))}
-          </div>
-        </section>
+                <h3>{project.title}</h3>
 
-        {/* SKILLS */}
-        <section id="skills" className="py-8">
-          <h2 className="text-2xl font-semibold">Skills</h2>
+                <p>{project.description}</p>
 
-          <p className="mt-2 text-gray-600">
-            A selection of technologies and tools I use frequently:
-          </p>
+                <video src={project.video} controls />
 
-          <ul className="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-            {skills.map((s) => (
-              <li
-                key={s}
-                className="rounded-md px-3 py-2 bg-white shadow-sm text-sm font-medium"
-              >
-                {s}
-              </li>
-            ))}
-          </ul>
-        </section>
+                <div className="project-tech">
+                  {project.tech.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
 
-        {/* CONTACT */}
-        <section id="contact" className="py-8">
-          <h2 className="text-2xl font-semibold">Contact</h2>
-
-          <p className="mt-2 text-gray-600">
-            Want to collaborate or have questions? Reach out.
-          </p>
-
-          <div className="mt-6 grid md:grid-cols-2 gap-6">
-            
-            <div className="rounded-lg bg-white p-6 shadow">
-              <h4 className="font-semibold">Email</h4>
-              <p className="mt-2 text-gray-600">
-                prathameshtirmare246@gmail.com
-              </p>
-
-              <h4 className="mt-6 font-semibold">Phone</h4>
-              <p className="mt-2 text-gray-600">9699246283</p>
-
-              <h4 className="mt-6 font-semibold">Social</h4>
-              <div className="mt-2 flex gap-3">
-                <a href="https://github.com/Prathamesh-1705/" target="_blank" rel="noreferrer" className="hover:underline">GitHub</a>
-                <a href="https://www.linkedin.com/in/prathamesh-tirmare-52961028b/" target="_blank" rel="noreferrer" className="hover:underline">LinkedIn</a>
+                <a href={project.github}>
+                  GitHub <FaArrowRight />
+                </a>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="rounded-lg bg-white p-6 shadow text-center">
-              <p className="text-gray-700 mb-4">
-                Click below to email me directly
-              </p>
+      {/* SKILLS */}
 
-              <button
-                onClick={() => {
-                  window.location.href =
-                    "mailto:prathameshtirmare246@gmail.com?subject=Portfolio%20Inquiry";
-                }}
-                className="w-full rounded-lg px-4 py-3 bg-slate-900 text-white font-medium shadow"
-              >
-                📩 Message Me
-              </button>
+      <section id="skills" className="section gray-section">
+        <div className="container">
+          <h2 className="section-title">Skills</h2>
+
+          <div className="skills-grid">
+            {skillCategories.map((category) => (
+              <div className="skill-card" key={category.title}>
+                <div className="skill-icon">{category.icon}</div>
+
+                <h3>{category.title}</h3>
+
+                <ul>
+                  {category.skills.map((skill) => (
+                    <li key={skill}>{skill}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* EXPERIENCE */}
+
+    
+<section className="section">
+  <div className="container">
+    <h2 className="section-title">Experience</h2>
+
+    <div className="experience-card">
+
+      <div className="experience-header">
+        <div>
+          <h3>Data Science Intern</h3>
+          <h4>Softcrowd Technologies</h4>
+        </div>
+
+        <span className="experience-date">
+          Dec 2024 – Jan 2025
+        </span>
+      </div>
+
+      <p className="experience-summary">
+        Worked on data preprocessing, exploratory analysis,
+        machine learning experimentation, and analytical reporting
+        using Python-based data science tools.
+      </p>
+
+      <div className="experience-skills">
+        <span>Python</span>
+        <span>Pandas</span>
+        <span>NumPy</span>
+        <span>Scikit-Learn</span>
+        <span>EDA</span>
+        <span>Data Visualization</span>
+      </div>
+
+      <ul className="experience-points">
+        <li>
+          Performed exploratory data analysis (EDA), data cleaning,
+          and preprocessing on structured datasets.
+        </li>
+
+        <li>
+          Assisted in feature engineering and machine learning model
+          development using Scikit-Learn.
+        </li>
+
+        <li>
+          Supported experimentation, model evaluation, and validation
+          workflows for predictive analytics projects.
+        </li>
+
+        <li>
+          Created visualizations and analytical reports to support
+          data-driven business decisions.
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+
+
+
+      {/* EDUCATION */}
+
+      <section className="section gray-section">
+        <div className="container">
+          <h2 className="section-title">Education</h2>
+
+          <div className="education-card">
+            <h3>B.E. Artificial Intelligence & Data Science</h3>
+
+            <p>
+              Jawahar Education Society's Institute of Technology,
+              Management & Research, Nashik
+            </p>
+
+            <p>CGPA: 7.95</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CERTIFICATIONS */}
+
+     <section className="section">
+  <div className="container">
+    <h2 className="section-title">Certifications</h2>
+
+    <div className="certifications-grid">
+
+      <div className="cert-card">
+        <h3>Python Bootcamp</h3>
+        <p>CodeWithHarry</p>
+
+        <div className="cert-skills">
+          <span>Python,</span>
+          <span>OOP,</span>
+          <span>Problem Solving</span>
+        </div>
+      </div>
+
+      <div className="cert-card">
+        <h3>Data Science Certification</h3>
+        <p>CodeWithHarry</p>
+
+        <div className="cert-skills">
+          <span>Pandas,</span>
+          <span>NumPy,</span>
+          <span>EDA,</span>
+          <span>Machine Learning</span>
+        </div>
+      </div>
+
+      <div className="cert-card">
+        <h3>Data Analytics Program</h3>
+        <p>Career365</p>
+
+        <div className="cert-skills">
+          <span>Excel,</span>
+          <span>Power BI,</span>
+          <span>Data Visualization</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+      {/* CONTACT */}
+
+      <section id="contact" className="section gray-section">
+        <div className="container">
+          <h2 className="section-title">Contact</h2>
+
+          <div className="contact-card">
+            <p>📧 prathameshtirmare246@gmail.com</p>
+
+            <p>📱 +91 9699246283</p>
+
+            <div className="contact-socials">
+              <a href="https://github.com/Prathamesh-1705/">
+                <FaGithub />
+              </a>
+
+              <a href="https://www.linkedin.com/in/prathamesh-tirmare-52961028b/">
+                <FaLinkedin />
+              </a>
+
+              <a href="mailto:prathameshtirmare246@gmail.com">
+                <FaEnvelope />
+              </a>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* FOOTER */}
-        <footer className="mt-12 text-center text-sm text-gray-500">
-          Built with React + Tailwind © {new Date().getFullYear()} {name.split(" ")[0]}
-        </footer>
+      {/* FOOTER */}
 
-      </main>
+      <footer className="footer">
+        <p>
+          © {new Date().getFullYear()} Prathamesh Tirmare.
+          Built with React & Tailwind.
+        </p>
+      </footer>
     </div>
   );
 }
+
