@@ -769,3 +769,18 @@ css
   }
 }
 
+.certificate-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #00bcd4;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.certificate-link:hover {
+  transform: translateX(5px);
+  color: #ffffff;
+}

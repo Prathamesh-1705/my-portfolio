@@ -353,44 +353,75 @@ export default function Portfolio() {
 
       {/* CERTIFICATIONS */}
 
-     <section className="section">
+<section className="section">
   <div className="container">
     <h2 className="section-title">Certifications</h2>
 
     <div className="certifications-grid">
 
+      {/* Python Bootcamp */}
       <div className="cert-card">
         <h3>Python Bootcamp</h3>
         <p>CodeWithHarry</p>
 
         <div className="cert-skills">
-          <span>Python,</span>
-          <span>OOP,</span>
+          <span>Python</span>
+          <span>OOP</span>
           <span>Problem Solving</span>
         </div>
+
+        <a
+          href="/certificates/Python_Bootcamp_Certificate.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="certificate-link"
+        >
+          View Certificate <FaArrowRight />
+        </a>
       </div>
 
+      {/* Data Science */}
       <div className="cert-card">
         <h3>Data Science Certification</h3>
         <p>CodeWithHarry</p>
 
         <div className="cert-skills">
-          <span>Pandas,</span>
-          <span>NumPy,</span>
-          <span>EDA,</span>
+          <span>Pandas</span>
+          <span>NumPy</span>
+          <span>EDA</span>
           <span>Machine Learning</span>
         </div>
+
+        <a
+          href="/certificates/Data_Science_Course_Certificate.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="certificate-link"
+        >
+          View Certificate <FaArrowRight />
+        </a>
       </div>
 
+      {/* Data Analytics */}
       <div className="cert-card">
         <h3>Data Analytics Program</h3>
         <p>Career365</p>
 
         <div className="cert-skills">
-          <span>Excel,</span>
-          <span>Power BI,</span>
+          <span>Excel</span>
+          <span>Power BI</span>
           <span>Data Visualization</span>
         </div>
+
+        <a
+          href="/certificates/Data_Analayst_Certificate.pdf
+          "
+          target="_blank"
+          rel="noopener noreferrer"
+          className="certificate-link"
+        >
+          View Certificate <FaArrowRight />
+        </a>
       </div>
 
     </div>
