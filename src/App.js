@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import profilePic from "./my portrait.png";
+import VideoPlayer from "./VideoPlayer";
 
 import {
   FaGithub,
@@ -201,9 +202,8 @@ export default function Portfolio() {
             ))}
           </div>
 
-          <video
+          <VideoPlayer
             src={featuredProject.video}
-            controls
             className="featured-video"
           />
 
@@ -230,7 +230,7 @@ export default function Portfolio() {
 
                 <p>{project.description}</p>
 
-                <video src={project.video} controls />
+                <VideoPlayer src={project.video} />
 
                 <div className="project-tech">
                   {project.tech.map((item) => (
