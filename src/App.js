@@ -22,16 +22,18 @@ export default function Portfolio() {
       featured: true,
       description:
         "Built a semantic retrieval pipeline over large document collections using LangChain and LLM APIs, enabling context-aware question answering and real-time information retrieval.",
-      video: "/videos/RAG_document_assistant.mp4",
+      video: "/videos/Rag Document Assistant.mp4",
       github: "https://github.com/Prathamesh-1705/rag-document-assistant",
       tech: ["LangChain", "RAG", "LLMs", "Semantic Search"],
     },
-    
-    { title: "AI Data Warehouse SQL Assistant",
-       description: "Designed ETL pipelines and integrated Gemini AI to convert natural language into SQL queries for analytical reporting.", 
-       video: "/videos/AI_Data_Warehouse_Assistant.mp4", 
-       github: "https://github.com/Prathamesh-1705/ai-data-warehouse-assistant", 
-       tech: ["MySQL", "Gemini", "ETL", "Streamlit"], },
+
+    {
+      title: "AI Data Warehouse SQL Assistant",
+      description: "Designed ETL pipelines and integrated Gemini AI to convert natural language into SQL queries for analytical reporting.",
+      video: "/videos/AI_Data_Warehouse_Assistant.mp4",
+      github: "https://github.com/Prathamesh-1705/ai-data-warehouse-assistant",
+      tech: ["MySQL", "Gemini", "ETL", "Streamlit"],
+    },
     {
       title: "EV Resale Price Prediction",
       description:
@@ -40,7 +42,7 @@ export default function Portfolio() {
       github: "https://github.com/Prathamesh-1705/ev_resale_price_prediction",
       tech: ["Python", "Scikit-Learn", "Pandas"],
     },
-    
+
   ];
 
   const skillCategories = [
@@ -271,64 +273,64 @@ export default function Portfolio() {
 
       {/* EXPERIENCE */}
 
-    
-<section className="section">
-  <div className="container">
-    <h2 className="section-title">Experience</h2>
 
-    <div className="experience-card">
+      <section className="section">
+        <div className="container">
+          <h2 className="section-title">Experience</h2>
 
-      <div className="experience-header">
-        <div>
-          <h3>Data Science Intern</h3>
-          <h4>Softcrowd Technologies</h4>
+          <div className="experience-card">
+
+            <div className="experience-header">
+              <div>
+                <h3>Data Science Intern</h3>
+                <h4>Softcrowd Technologies</h4>
+              </div>
+
+              <span className="experience-date">
+                Dec 2024 – Jan 2025
+              </span>
+            </div>
+
+            <p className="experience-summary">
+              Worked on data preprocessing, exploratory analysis,
+              machine learning experimentation, and analytical reporting
+              using Python-based data science tools.
+            </p>
+
+            <div className="experience-skills">
+              <span>Python</span>
+              <span>Pandas</span>
+              <span>NumPy</span>
+              <span>Scikit-Learn</span>
+              <span>EDA</span>
+              <span>Data Visualization</span>
+            </div>
+
+            <ul className="experience-points">
+              <li>
+                Performed exploratory data analysis (EDA), data cleaning,
+                and preprocessing on structured datasets.
+              </li>
+
+              <li>
+                Assisted in feature engineering and machine learning model
+                development using Scikit-Learn.
+              </li>
+
+              <li>
+                Supported experimentation, model evaluation, and validation
+                workflows for predictive analytics projects.
+              </li>
+
+              <li>
+                Created visualizations and analytical reports to support
+                data-driven business decisions.
+              </li>
+            </ul>
+
+          </div>
         </div>
-
-        <span className="experience-date">
-          Dec 2024 – Jan 2025
-        </span>
-      </div>
-
-      <p className="experience-summary">
-        Worked on data preprocessing, exploratory analysis,
-        machine learning experimentation, and analytical reporting
-        using Python-based data science tools.
-      </p>
-
-      <div className="experience-skills">
-        <span>Python</span>
-        <span>Pandas</span>
-        <span>NumPy</span>
-        <span>Scikit-Learn</span>
-        <span>EDA</span>
-        <span>Data Visualization</span>
-      </div>
-
-      <ul className="experience-points">
-        <li>
-          Performed exploratory data analysis (EDA), data cleaning,
-          and preprocessing on structured datasets.
-        </li>
-
-        <li>
-          Assisted in feature engineering and machine learning model
-          development using Scikit-Learn.
-        </li>
-
-        <li>
-          Supported experimentation, model evaluation, and validation
-          workflows for predictive analytics projects.
-        </li>
-
-        <li>
-          Created visualizations and analytical reports to support
-          data-driven business decisions.
-        </li>
-      </ul>
-
-    </div>
-  </div>
-</section>
+      </section>
 
 
 
@@ -353,80 +355,80 @@ export default function Portfolio() {
 
       {/* CERTIFICATIONS */}
 
-<section className="section">
-  <div className="container">
-    <h2 className="section-title">Certifications</h2>
+      <section className="section">
+        <div className="container">
+          <h2 className="section-title">Certifications</h2>
 
-    <div className="certifications-grid">
+          <div className="certifications-grid">
 
-      {/* Python Bootcamp */}
-      <div className="cert-card">
-        <h3>Python Bootcamp</h3>
-        <p>CodeWithHarry</p>
+            {/* Python Bootcamp */}
+            <div className="cert-card">
+              <h3>Python Bootcamp</h3>
+              <p>CodeWithHarry</p>
 
-        <div className="cert-skills">
-          <span>Python</span>
-          <span>OOP</span>
-          <span>Problem Solving</span>
-        </div>
+              <div className="cert-skills">
+                <span>Python</span>
+                <span>OOP</span>
+                <span>Problem Solving</span>
+              </div>
 
-        <a
-          href="/certificates/Python_Bootcamp_Certificate.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="certificate-link"
-        >
-          View Certificate <FaArrowRight />
-        </a>
-      </div>
+              <a
+                href="/certificates/Python_Bootcamp_Certificate.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="certificate-link"
+              >
+                View Certificate <FaArrowRight />
+              </a>
+            </div>
 
-      {/* Data Science */}
-      <div className="cert-card">
-        <h3>Data Science Certification</h3>
-        <p>CodeWithHarry</p>
+            {/* Data Science */}
+            <div className="cert-card">
+              <h3>Data Science Certification</h3>
+              <p>CodeWithHarry</p>
 
-        <div className="cert-skills">
-          <span>Pandas</span>
-          <span>NumPy</span>
-          <span>EDA</span>
-          <span>Machine Learning</span>
-        </div>
+              <div className="cert-skills">
+                <span>Pandas</span>
+                <span>NumPy</span>
+                <span>EDA</span>
+                <span>Machine Learning</span>
+              </div>
 
-        <a
-          href="/certificates/Data_Science_Course_Certificate.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="certificate-link"
-        >
-          View Certificate <FaArrowRight />
-        </a>
-      </div>
+              <a
+                href="/certificates/Data_Science_Course_Certificate.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="certificate-link"
+              >
+                View Certificate <FaArrowRight />
+              </a>
+            </div>
 
-      {/* Data Analytics */}
-      <div className="cert-card">
-        <h3>Data Analytics Program</h3>
-        <p>Career365</p>
+            {/* Data Analytics */}
+            <div className="cert-card">
+              <h3>Data Analytics Program</h3>
+              <p>Career365</p>
 
-        <div className="cert-skills">
-          <span>Excel</span>
-          <span>Power BI</span>
-          <span>Data Visualization</span>
-        </div>
+              <div className="cert-skills">
+                <span>Excel</span>
+                <span>Power BI</span>
+                <span>Data Visualization</span>
+              </div>
 
-        <a
-          href="/certificates/Data_Analayst_Certificate.pdf
+              <a
+                href="/certificates/Data_Analayst_Certificate.pdf
           "
-          target="_blank"
-          rel="noopener noreferrer"
-          className="certificate-link"
-        >
-          View Certificate <FaArrowRight />
-        </a>
-      </div>
+                target="_blank"
+                rel="noopener noreferrer"
+                className="certificate-link"
+              >
+                View Certificate <FaArrowRight />
+              </a>
+            </div>
 
-    </div>
-  </div>
-</section>
+          </div>
+        </div>
+      </section>
       {/* CONTACT */}
 
       <section id="contact" className="section gray-section">
