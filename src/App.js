@@ -19,7 +19,7 @@ import {
 export default function Portfolio() {
   const projects = [
     {
-      title: "RAG-Based Document QA Assistant",
+      title: "RAG Document Assistant",
       featured: true,
       description:
         "Built a semantic retrieval pipeline over large document collections using LangChain and LLM APIs, enabling context-aware question answering and real-time information retrieval.",
@@ -207,7 +207,7 @@ export default function Portfolio() {
             className="featured-video"
           />
 
-          <a href={"https://github.com/Prathamesh-1705/rag-document-assistant"} className="github-link">
+          <a href={"https://github.com/Prathamesh-1705/RAG_Document_Assistant"} className="github-link">
             View Project <FaArrowRight />
           </a>
         </div>
