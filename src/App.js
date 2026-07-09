@@ -24,7 +24,7 @@ export default function Portfolio() {
       description:
         "Built a semantic retrieval pipeline over large document collections using LangChain and LLM APIs, enabling context-aware question answering and real-time information retrieval.",
       video: "/videos/Rag Document Assistant.mp4",
-      github: "https://github.com/Prathamesh-1705/rag-document-assistant",
+      github: "https://github.com/Prathamesh-1705/RAG_Document_Assistant",
       tech: ["LangChain", "RAG", "LLMs", "Semantic Search"],
     },
 
