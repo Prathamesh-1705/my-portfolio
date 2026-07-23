@@ -180,7 +180,7 @@ export default function Portfolio() {
           </div>
 
           <div className="stat-card">
-            <h3>7.95</h3>
+            <h3>6.78</h3>
             <p>CGPA</p>
           </div>
         </div>
