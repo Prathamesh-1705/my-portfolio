@@ -37,7 +37,7 @@ export default function VideoPlayer({ src, className }) {
         </div>
         <div className="placeholder-content">
           <span>Click to watch project demo</span>
-        </div>
+      </div>
       </div>
     );
   }
@@ -64,3 +64,4 @@ export default function VideoPlayer({ src, className }) {
     </div>
   );
 }
+

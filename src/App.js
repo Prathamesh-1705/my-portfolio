@@ -104,7 +104,7 @@ export default function Portfolio() {
             </p>
 
             <div className="hero-buttons">
-              <a href="/resume.pdf" download className="primary-btn">
+              <a href="/Prathmesh-Tirmare_AIDS_2026.pdf" download className="primary-btn">
                 <FaDownload />
                 Resume
               </a>
