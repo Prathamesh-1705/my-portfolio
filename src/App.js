@@ -152,7 +152,7 @@ export default function Portfolio() {
           <h2 className="section-title">About Me</h2>
 
           <p className="about-text">
-            AI & Data Science undergraduate with hands-on experience in
+            AI & Data Science Engineer with hands-on experience in
             Machine Learning, Data Analytics, ETL Pipelines, Data Warehousing
             and Generative AI applications. Passionate about building
             intelligent systems that transform data into actionable insights.
@@ -177,11 +177,6 @@ export default function Portfolio() {
           <div className="stat-card">
             <h3>3</h3>
             <p>Certifications</p>
-          </div>
-
-          <div className="stat-card">
-            <h3>6.78</h3>
-            <p>CGPA</p>
           </div>
         </div>
       </section>
@@ -348,7 +343,7 @@ export default function Portfolio() {
               Management & Research, Nashik
             </p>
 
-            <p>CGPA: 7.95</p>
+            
           </div>
         </div>
       </section>

@@ -1,4 +1,3 @@
-css
 /* =========================
    APPLE STYLE PORTFOLIO
 ========================= */
@@ -247,6 +246,10 @@ css
    ABOUT
 ========================= */
 
+#about {
+  padding-bottom: 50px;
+}
+
 .about-text {
   max-width: 900px;
   margin: auto;
@@ -264,17 +267,17 @@ css
 ========================= */
 
 .stats-section {
-  padding: 40px 8% 120px;
+  padding: 0 8% 120px;
 }
 
 .stats-grid {
   display: grid;
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 
   gap: 24px;
 
-  max-width: 1200px;
+  max-width: 1000px;
   margin: auto;
 }
 
@@ -286,6 +289,13 @@ css
   border-radius: 30px;
 
   text-align: center;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .stat-card h3 {
