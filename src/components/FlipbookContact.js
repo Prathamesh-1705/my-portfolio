@@ -69,14 +69,14 @@ export default function FlipbookContact() {
           'Accept': 'application/json',
         },
         body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
+          'Portfolio Source': 'Received via Portfolio',
+          'Sender Name': formData.name,
+          'Sender Email': formData.email,
+          'Message': formData.message,
           _subject: `Received via Portfolio: Message from ${formData.name}`,
           _replyto: formData.email,
           _captcha: 'false',
           _template: 'table',
-          source: 'Received via Portfolio',
         }),
       });
 
