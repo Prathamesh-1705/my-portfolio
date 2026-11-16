@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
@@ -10,31 +10,42 @@ export default function FlipbookContact() {
   const [submitted, setSubmitted] = useState(false);
   const [manualOpen, setManualOpen] = useState(false);
 
-  // Track scroll progress through this tall section
+  // If user navigates or clicks directly to #contact, open the book completely
+  useEffect(() => {
+    const handleHash = () => {
+      if (window.location.hash === '#contact') {
+        setManualOpen(true);
+      }
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
+
+  // Track scroll progress through this section
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start end', 'end end'],
   });
 
   // Smooth spring physics for book flip rotation
-  // 0% scroll -> 0deg (closed)
-  // 35% -> -45deg
-  // 75% -> -112deg (fully open as seen in Image 2)
+  // When scrolling in: opens between 8% and 45% scroll progress
+  // Once the sticky section locks in view (~52%), it is guaranteed 100% fully open (-115deg)
   const smoothProgress = useSpring(scrollYProgress, {
     damping: 24,
-    stiffness: 100,
+    stiffness: 120,
     mass: 0.8,
   });
 
-  const scrollRotateY = useTransform(smoothProgress, [0.15, 0.75], [0, -115]);
+  const scrollRotateY = useTransform(smoothProgress, [0.08, 0.45], [0, -115]);
 
-  // Combine scroll rotation with manual click toggle
+  // Combine scroll rotation with manual click toggle or #contact anchor
   const currentRotateY = manualOpen ? -115 : scrollRotateY;
 
   // Dynamic shadow as cover lifts
   const coverShadow = useTransform(
     smoothProgress,
-    [0.15, 0.45, 0.75],
+    [0.08, 0.25, 0.45],
     [
       '0px 4px 12px rgba(6,5,4,0.1)',
       '-20px 25px 40px rgba(6,5,4,0.3)',
