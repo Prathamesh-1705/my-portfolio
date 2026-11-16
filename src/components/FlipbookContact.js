@@ -73,6 +73,7 @@ export default function FlipbookContact() {
           email: formData.email,
           message: formData.message,
           _subject: `Portfolio Message from ${formData.name}`,
+          _captcha: 'false',
           _template: 'table',
         }),
       });
