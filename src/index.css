@@ -1,186 +1,162 @@
-/* =========================
-   APPLE GLOBAL STYLES
-========================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* =========================
-   RESET
-========================= */
+/* ========================================================
+   WIREFRAME THEME STYLES & ANIMATIONS
+   Reverse-Engineered from wireframee.framer.website
+   ======================================================== */
+
+:root {
+  --sketch-bg: #f7f6f4;
+  --sketch-card: #fff9f5;
+  --sketch-black: #060504;
+  --sketch-yellow: #ffe500;
+  --sketch-gray: #e2e2e2;
+  --sketch-muted: #7d766f;
+}
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  background-color: var(--sketch-bg);
+  color: var(--sketch-black);
 }
 
 body {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont,
-        "SF Pro Display", "Segoe UI", sans-serif;
-
-    background: #ffffff;
-    color: #1d1d1f;
-
-    overflow-x: hidden;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--sketch-bg);
+  color: var(--sketch-black);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* =========================
-   TYPOGRAPHY
-========================= */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: #1d1d1f;
-    font-weight: 700;
-}
-
-p {
-    color: #424245;
-    line-height: 1.8;
-}
-
-a {
-    color: inherit;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-video {
-    max-width: 100%;
-    display: block;
-}
-
-/* =========================
-   SELECTION
-========================= */
-
-::selection {
-    background: #000000;
-    color: #ffffff;
-}
-
-/* =========================
-   SCROLLBAR
-========================= */
-
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-    background: #f5f5f7;
+  background: var(--sketch-bg);
+  border-left: 1px solid #e2e2e2;
 }
-
 ::-webkit-scrollbar-thumb {
-    background: #c7c7cc;
-    border-radius: 999px;
+  background: #060504;
+  border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-    background: #a1a1a6;
+  background: #474747;
 }
 
-/* =========================
-   APPLE UTILITIES
-========================= */
-
-.glass {
-    background: rgba(255, 255, 255, 0.8);
-
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-
-    border: 1px solid rgba(255, 255, 255, 0.3);
+/* Selection */
+::selection {
+  background: var(--sketch-yellow);
+  color: #060504;
 }
 
-.apple-shadow {
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.05),
-        0 20px 60px rgba(0, 0, 0, 0.08);
+/* Notebook paper grid background */
+.sketch-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(6, 5, 4, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 5, 4, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-.apple-radius {
-    border-radius: 30px;
+/* Hand-drawn borders */
+.sketch-border {
+  border: 2px solid #060504;
+  border-radius: 6px 8px 6px 9px;
 }
 
-/* =========================
-   SMOOTH ANIMATIONS
-========================= */
-
-a,
-button,
-.card,
-.project-card,
-.skill-card,
-.profile-card {
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        opacity 0.3s ease;
+.sketch-border-double {
+  border: 3px double #060504;
+  border-radius: 6px 8px 6px 9px;
 }
 
-button {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-family: inherit;
+.sketch-border-thick {
+  border: 3px solid #060504;
+  border-radius: 8px 6px 9px 7px;
 }
 
-/* =========================
-   SECTION SPACING
-========================= */
-
-section {
-    position: relative;
+.sketch-border-dashed {
+  border: 2px dashed #060504;
+  border-radius: 7px 9px 6px 8px;
 }
 
-/* =========================
-   RESPONSIVE CONTAINER
-========================= */
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+/* Sketch Box Shadows */
+.sketch-shadow {
+  box-shadow: 4px 4px 0px #060504;
 }
 
-/* =========================
-   MOBILE OPTIMIZATION
-========================= */
-
-@media (max-width: 768px) {
-
-    html {
-        font-size: 15px;
-    }
-
-    body {
-        overflow-x: hidden;
-    }
+.sketch-shadow-sm {
+  box-shadow: 2px 2px 0px #060504;
 }
 
-@media (max-width: 480px) {
-
-    html {
-        font-size: 14px;
-    }
+.sketch-shadow-lg {
+  box-shadow: 7px 7px 0px #060504;
 }
 
+.sketch-shadow-hover {
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.sketch-shadow-hover:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0px #060504;
+}
+
+/* Camera Flash Keyframe */
+@keyframes camFlash {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.camera-flash-overlay {
+  animation: camFlash 0.7s forwards;
+  pointer-events: none;
+}
+
+/* Diagonal 45-degree reveal keyframes */
+@keyframes brushBandLeft {
+  from {
+    transform: translateX(-130%) skewX(-45deg);
+  }
+  to {
+    transform: translateX(0%) skewX(-45deg);
+  }
+}
+
+@keyframes brushBandRight {
+  from {
+    transform: translateX(130%) skewX(-45deg);
+  }
+  to {
+    transform: translateX(0%) skewX(-45deg);
+  }
+}
+
+/* Spiral binding rings */
+.spiral-ring {
+  width: 14px;
+  height: 28px;
+  background: linear-gradient(135deg, #e0e0e0 0%, #222222 50%, #ffffff 100%);
+  border-radius: 7px;
+  border: 1px solid #060504;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.spiral-hole {
+  width: 12px;
+  height: 12px;
+  background-color: #060504;
+  border-radius: 50%;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
+}
