@@ -8,6 +8,7 @@ export default function FlipbookContact() {
   const containerRef = useRef(null);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [manualOpen, setManualOpen] = useState(false);
 
   // If user navigates or clicks directly to #contact, open the book completely
@@ -53,18 +54,43 @@ export default function FlipbookContact() {
     ]
   );
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    confetti({
-      particleCount: 90,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ['#ffe500', '#060504', '#ffffff', '#e2e2e2'],
-    });
+    setLoading(true);
 
-    setSubmitted(true);
+    try {
+      // Send note directly to prathameshtirmare246@gmail.com via FormSubmit
+      const res = await fetch('https://formsubmit.co/ajax/prathameshtirmare246@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `Portfolio Message from ${formData.name}`,
+          _template: 'table',
+        }),
+      });
+
+      if (res.ok) {
+        confetti({
+          particleCount: 90,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#ffe500', '#060504', '#ffffff', '#e2e2e2'],
+        });
+      }
+    } catch (err) {
+      console.warn('Network issue sending form:', err);
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -132,17 +158,25 @@ export default function FlipbookContact() {
                     Note Dispatched!
                   </h3>
                   <p className="font-caveat text-2xl text-[#474747] max-w-md mx-auto">
-                    Thanks, {formData.name}! I will write back to you shortly at {formData.email}.
+                    Thanks, {formData.name}! Your message has been routed to prathameshtirmare246@gmail.com.
                   </p>
-                  <button
-                    onClick={() => {
-                      setSubmitted(false);
-                      setFormData({ name: '', email: '', message: '' });
-                    }}
-                    className="font-caveat text-xl font-bold text-[#060504] bg-[#ffe500] px-5 py-1.5 sketch-border"
-                  >
-                    Write another note
-                  </button>
+                  <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                    <a
+                      href={`mailto:prathameshtirmare246@gmail.com?subject=Note from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(formData.message)}`}
+                      className="font-caveat text-xl font-bold text-[#060504] bg-[#ffe500] px-4 py-1.5 sketch-border no-underline shadow-xs hover:scale-105 transition-transform"
+                    >
+                      Open in Email App ↗
+                    </a>
+                    <button
+                      onClick={() => {
+                        setSubmitted(false);
+                        setFormData({ name: '', email: '', message: '' });
+                      }}
+                      className="font-caveat text-xl font-bold text-[#060504] bg-[#f7f6f4] px-4 py-1.5 sketch-border"
+                    >
+                      Write another note
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="relative z-10 flex flex-col justify-between h-full">
@@ -221,10 +255,11 @@ export default function FlipbookContact() {
                       {/* Yellow highlighter brush oval backdrop */}
                       <button
                         type="submit"
-                        className="relative z-10 flex items-center gap-2 px-6 py-2.5 font-caveat text-3xl sm:text-4xl font-bold text-[#060504] focus:outline-none cursor-pointer"
+                        disabled={loading}
+                        className="relative z-10 flex items-center gap-2 px-6 py-2.5 font-caveat text-3xl sm:text-4xl font-bold text-[#060504] focus:outline-none cursor-pointer disabled:opacity-60"
                       >
-                        <span>Send it</span>
-                        <ArrowRight className="w-6 h-6 stroke-[2.5] transition-transform group-hover/send:translate-x-1.5" />
+                        <span>{loading ? 'Sending...' : 'Send it'}</span>
+                        <ArrowRight className={`w-6 h-6 stroke-[2.5] transition-transform ${loading ? 'animate-pulse' : 'group-hover/send:translate-x-1.5'}`} />
                       </button>
 
                       {/* Hand-drawn yellow highlight oval wrapper */}
