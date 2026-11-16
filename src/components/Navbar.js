@@ -15,12 +15,12 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-3 sm:py-3.5 bg-[#f7f6f4]/95 backdrop-blur-md border-b-2 border-[#060504] transition-all duration-300">
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-4 sm:py-6 transition-all duration-300 pointer-events-none">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           {/* Logo / Brand Name in sketchbook container matching other nav items */}
           <a 
             href="#top" 
-            className="group flex items-center gap-2.5 px-5 py-2 bg-[#fff9f5] sketch-border-double font-caveat text-xl sm:text-2xl font-bold text-[#060504] sketch-shadow-sm hover:sketch-shadow transition-all duration-200 hover:-translate-y-0.5 no-underline"
+            className="pointer-events-auto group flex items-center gap-2.5 px-5 py-2 bg-[#fff9f5] sketch-border-double font-caveat text-xl sm:text-2xl font-bold text-[#060504] sketch-shadow-sm hover:sketch-shadow transition-all duration-200 hover:-translate-y-0.5 no-underline"
           >
             <span className="tracking-tight transition-transform duration-200 group-hover:scale-105">
               Prathamesh
@@ -29,7 +29,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8 bg-[#fff9f5] px-6 py-2 sketch-border-double sketch-shadow-sm">
+          <nav className="pointer-events-auto hidden md:flex items-center gap-8 bg-[#fff9f5] px-6 py-2 sketch-border-double sketch-shadow-sm">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -43,7 +43,7 @@ export default function Navbar() {
           </nav>
 
           {/* Contact Button */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="pointer-events-auto hidden sm:flex items-center gap-3">
             <a
               href="#contact"
               className="group flex items-center gap-2 px-5 py-2 bg-[#fff9f5] sketch-border-double font-caveat text-xl font-bold text-[#060504] sketch-shadow-sm hover:sketch-shadow transition-all duration-200 hover:-translate-y-0.5 no-underline"
@@ -56,7 +56,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2.5 bg-[#fff9f5] sketch-border-double sketch-shadow-sm text-[#060504] focus:outline-none hover:sketch-shadow transition-all"
+            className="pointer-events-auto md:hidden p-2.5 bg-[#fff9f5] sketch-border-double sketch-shadow-sm text-[#060504] focus:outline-none hover:sketch-shadow transition-all"
             aria-label="Toggle Menu"
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
