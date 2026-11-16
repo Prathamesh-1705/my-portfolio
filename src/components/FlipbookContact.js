@@ -61,8 +61,8 @@ export default function FlipbookContact() {
     setLoading(true);
 
     try {
-      // Send note directly to prathameshtirmare246@gmail.com via FormSubmit
-      const res = await fetch('https://formsubmit.co/ajax/prathameshtirmare246@gmail.com', {
+      // Send note directly using verified FormSubmit token for prathameshtirmare246@gmail.com
+      const res = await fetch('https://formsubmit.co/ajax/4b788fbe26d25c526aeddaf9f7db2f96', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,9 +72,11 @@ export default function FlipbookContact() {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          _subject: `Portfolio Message from ${formData.name}`,
+          _subject: `Received via Portfolio: Message from ${formData.name}`,
+          _replyto: formData.email,
           _captcha: 'false',
           _template: 'table',
+          source: 'Received via Portfolio',
         }),
       });
 
@@ -163,7 +165,7 @@ export default function FlipbookContact() {
                   </p>
                   <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                     <a
-                      href={`mailto:prathameshtirmare246@gmail.com?subject=Note from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(formData.message)}`}
+                      href={`mailto:prathameshtirmare246@gmail.com?subject=${encodeURIComponent(`Received via Portfolio: Note from ${formData.name}`)}&body=${encodeURIComponent(`Received via Portfolio\n\nSender Name: ${formData.name}\nSender Email: ${formData.email}\n\nMessage:\n${formData.message}`)}`}
                       className="font-caveat text-xl font-bold text-[#060504] bg-[#ffe500] px-4 py-1.5 sketch-border no-underline shadow-xs hover:scale-105 transition-transform"
                     >
                       Open in Email App ↗
