@@ -75,8 +75,8 @@ export default function ContactSection() {
   ];
 
   return (
-    <section 
-      id="contact" 
+    <section
+      id="contact"
       className="relative py-24 sm:py-32 px-4 sm:px-8 max-w-6xl mx-auto scroll-mt-20"
     >
       {/* Top Header Row matching wireframe aesthetic */}
@@ -213,7 +213,7 @@ export default function ContactSection() {
               Prathamesh Tirmare
             </h4>
             <p className="font-mono text-xs text-[#7d766f]">
-              AI & Data Science Engineer ✦ B.E. AIDS (Honors in Data Science), 2026
+              AI & Data Science Engineer ✦ B.E. AIDS , 2026
             </p>
           </div>
         </div>
