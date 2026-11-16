@@ -6,7 +6,7 @@ import InteractiveLanyard from './InteractiveLanyard';
 
 export default function Hero() {
   return (
-    <section className="relative pt-28 sm:pt-36 pb-20 px-4 sm:px-8 max-w-6xl mx-auto overflow-visible">
+    <section id="top" className="relative pt-28 sm:pt-36 pb-20 px-4 sm:px-8 max-w-6xl mx-auto overflow-visible">
       {/* Top Banner Ribbon */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}

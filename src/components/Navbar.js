@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { name: 'works', href: '#works' },
@@ -15,21 +24,27 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-4 sm:py-6 transition-all duration-300">
+      <header 
+        className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 transition-all duration-300 ${
+          scrolled 
+            ? 'py-3 bg-[#f7f6f4]/95 backdrop-blur-md border-b-2 border-[#060504] shadow-sm' 
+            : 'py-4 sm:py-6 bg-transparent'
+        }`}
+      >
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          {/* Logo / Brand Name */}
+          {/* Logo / Brand Name in solid sketch card container */}
           <a 
             href="#top" 
-            className="group flex items-center gap-2 text-[#060504] no-underline"
+            className="group flex items-center gap-2 px-3.5 py-1.5 bg-[#fff9f5] sketch-border sketch-shadow-sm text-[#060504] no-underline hover:sketch-shadow transition-all duration-200 hover:-translate-y-0.5"
           >
-            <span className="font-caveat font-bold text-3xl sm:text-4xl tracking-tight transition-transform duration-200 group-hover:scale-105">
+            <span className="font-caveat font-bold text-2xl sm:text-3xl tracking-tight transition-transform duration-200 group-hover:scale-105">
               Prathamesh
             </span>
-            <span className="w-2 h-2 rounded-full bg-[#ffe500] border border-[#060504]" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#ffe500] border border-[#060504]" />
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8 bg-[#fff9f5]/80 backdrop-blur-md px-6 py-2.5 sketch-border sketch-shadow-sm">
+          <nav className="hidden md:flex items-center gap-8 bg-[#fff9f5] px-6 py-2.5 sketch-border sketch-shadow-sm">
             {navLinks.map((link) => (
               <a
                 key={link.name}
